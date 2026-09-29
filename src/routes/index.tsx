@@ -2,10 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowRight, Check, MessageCircle, Sparkles } from "lucide-react";
 import { type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/verya-hero.jpg";
+import heroImage from "@/assets/verya-hero-natural.jpg";
 import textilesImage from "@/assets/verya-textiles.jpg";
-import teamImage from "@/assets/verya-team.jpg";
-import productionImage from "@/assets/verya-production.jpg";
+import teamImage from "@/assets/verya-team-natural.jpg";
+import productionImage from "@/assets/verya-production-natural.jpg";
+import schoolImage from "@/assets/verya-school-candid.jpg";
+import businessImage from "@/assets/verya-business-candid.jpg";
+import eventImage from "@/assets/verya-event-candid.jpg";
+import tracksuitImage from "@/assets/verya-tracksuit-detail.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,11 +26,18 @@ export const Route = createFileRoute("/")({
 });
 
 const products = [
-  ["01", "School Tracksuits", "Our signature. Built for movement, belonging and everyday school life.", "bg-teal"],
-  ["02", "Custom T-Shirts", "Colourful branded tees that put your identity front and centre.", "bg-orange"],
-  ["03", "Business Wear", "Polished uniforms and branded apparel for teams that mean business.", "bg-gold"],
-  ["04", "Sports & Events", "Performance-ready kits and event wear made to show up together.", "bg-plum text-cream"],
-  ["05", "Knitwear & Uniforms", "Smart layers and dependable daily uniforms, tailored to your brief.", "bg-charcoal text-cream"],
+  { n: "01", title: "School Tracksuits", copy: "Our signature. Built for movement, belonging and everyday school life.", accent: "bg-teal", img: schoolImage, alt: "Students in custom teal and charcoal school tracksuits" },
+  { n: "02", title: "Custom T-Shirts", copy: "Colourful branded tees that put your identity front and centre.", accent: "bg-orange", img: eventImage, alt: "Event crew wearing custom printed T-shirts" },
+  { n: "03", title: "Business Wear", copy: "Polished uniforms and branded apparel for teams that mean business.", accent: "bg-gold", img: businessImage, alt: "Shop staff in branded business polos serving a customer" },
+  { n: "04", title: "Sports & Events", copy: "Performance-ready kits and event wear made to show up together.", accent: "bg-plum text-cream", img: teamImage, alt: "Sports team wearing matching custom kit" },
+  { n: "05", title: "Knitwear & Uniforms", copy: "Smart layers and dependable daily uniforms, tailored to your brief.", accent: "bg-charcoal text-cream", img: tracksuitImage, alt: "Tailor cutting tracksuit fabric on a workshop table" },
+];
+
+const audienceCards = [
+  { label: "Schools", img: schoolImage, alt: "Kenyan students in custom school tracksuits", accent: "bg-teal" },
+  { label: "Businesses", img: businessImage, alt: "Business staff in branded uniforms", accent: "bg-orange" },
+  { label: "Teams & Organizations", img: teamImage, alt: "Team in matching custom sportswear", accent: "bg-gold" },
+  { label: "Events", img: eventImage, alt: "Event organizers in custom branded T-shirts", accent: "bg-plum" },
 ];
 
 const audiences = ["Schools", "Businesses", "Teams & Organizations", "Events"];
@@ -95,8 +106,16 @@ function Index() {
       <section className="bg-cream py-20 lg:py-28">
         <div className="section-shell grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
           <div><p className="text-sm font-extrabold uppercase text-plum">Who we serve</p><h2 className="mt-3 text-5xl font-black leading-none sm:text-6xl">Your people.<br/>Your colours.<br/>Your identity.</h2></div>
-          <div className="grid grid-cols-2 border-l-2 border-t-2 border-charcoal">
-            {audiences.map((item, i) => <div key={item} className={`flex min-h-40 items-end border-b-2 border-r-2 border-charcoal p-5 sm:min-h-52 sm:p-7 ${i === 0 ? "bg-teal" : i === 1 ? "bg-orange" : i === 2 ? "bg-gold" : "bg-plum text-cream"}`}><span className="font-display text-2xl font-black sm:text-3xl">{item}</span></div>)}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {audienceCards.map((item) => (
+              <article key={item.label} className="group relative min-h-56 overflow-hidden border-2 border-charcoal sm:min-h-64">
+                <img src={item.img} alt={item.alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/25 to-transparent" />
+                <div className="relative flex h-full min-h-56 items-end p-5 sm:min-h-64 sm:p-6">
+                  <span className={`${item.accent} border-2 border-charcoal px-3 py-2 font-display text-xl font-black sm:text-2xl ${item.accent === "bg-plum" ? "text-cream" : "text-charcoal"}`}>{item.label}</span>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -105,7 +124,17 @@ function Index() {
         <div className="section-shell">
           <div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p className="text-sm font-extrabold uppercase text-gold">What we make</p><h2 className="mt-3 text-5xl font-black sm:text-6xl">Wear the difference.</h2></div><p className="max-w-sm text-sm leading-relaxed text-cream/70">From first sketch to final stitch, every order is shaped around your people and purpose.</p></div>
           <div className="grid gap-3 lg:grid-cols-2">
-            {products.map(([number, title, copy, color], i) => <article key={title} className={`${color} p-7 sm:p-9 ${i === 0 ? "min-h-80 lg:row-span-2" : "min-h-56"}`}><span className="text-xs font-black opacity-70">{number} /</span><div className="mt-16 lg:mt-24"><h3 className="text-3xl font-black sm:text-4xl">{title}</h3><p className="mt-3 max-w-md font-semibold leading-relaxed opacity-80">{copy}</p></div></article>)}
+            {products.map((product, i) => (
+              <article key={product.title} className={`group relative overflow-hidden border-2 border-cream/20 ${i === 0 ? "min-h-[26rem] lg:row-span-2" : "min-h-72"}`}>
+                <img src={product.img} alt={product.alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/10" />
+                <div className={`relative flex h-full flex-col justify-end p-7 text-cream sm:p-9 ${i === 0 ? "min-h-[26rem]" : "min-h-72"}`}>
+                  <span className={`${product.accent} mb-4 w-fit border-2 border-charcoal px-2 py-1 text-xs font-black text-charcoal`}>{product.n}</span>
+                  <h3 className="text-3xl font-black sm:text-4xl">{product.title}</h3>
+                  <p className="mt-3 max-w-md font-semibold leading-relaxed text-cream/80">{product.copy}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -118,7 +147,7 @@ function Index() {
 
       <section id="story" className="bg-gold py-20 lg:py-28"><div className="section-shell grid gap-12 lg:grid-cols-2 lg:items-center"><div><p className="text-sm font-extrabold uppercase text-plum">Meet the founders</p><h2 className="mt-4 text-5xl font-black leading-none sm:text-6xl">Born in Canada.<br/>Rooted in Kenya.</h2><p className="mt-7 text-lg font-semibold leading-relaxed">VERYA was founded in 2026 in Canada by a Kenyan family and is co-owned by Eunice and Hellen.</p><p className="mt-4 leading-relaxed">Their vision connects international sourcing and production knowledge—including exposure to textile suppliers and machinery in China—with opportunity in Kenya’s growing apparel market.</p><p className="mt-4 font-bold">A family-built company with Kenyan ambition, global perspective and room to grow.</p></div><div className="border-2 border-charcoal bg-cream p-6 shadow-brand sm:p-9"><div className="mb-10 flex size-16 items-center justify-center bg-plum font-display text-2xl font-black text-cream">EH</div><blockquote className="font-display text-3xl font-black leading-tight sm:text-4xl">“We’re building more than clothing. We’re building confidence, identity and opportunity.”</blockquote><p className="mt-8 border-t-2 border-charcoal pt-5 font-extrabold">Eunice & Hellen · Co-owners, VERYA</p></div></div></section>
 
-      <section className="bg-cream py-20 lg:py-28"><div className="section-shell"><div className="mb-9 flex items-end justify-between"><div><p className="text-sm font-extrabold uppercase text-teal">In motion</p><h2 className="mt-3 text-5xl font-black sm:text-6xl">Made for real teams.</h2></div></div><div className="grid gap-4 md:grid-cols-5 md:grid-rows-2"><img src={teamImage} alt="Kenyan sports team in custom apparel" width={1200} height={1504} loading="lazy" className="h-full min-h-96 w-full object-cover md:col-span-2 md:row-span-2"/><img src={productionImage} alt="Kenyan garment makers working in a textile workshop" width={1408} height={1056} loading="lazy" className="h-full min-h-72 w-full object-cover md:col-span-3"/><div className="textile-grid flex min-h-64 items-end bg-orange p-7 md:col-span-2"><p className="font-display text-3xl font-black">Schools. Teams.<br/>Businesses. Events.</p></div><div className="flex min-h-64 items-center justify-center bg-plum p-7 text-center text-cream md:col-span-1"><p className="font-display text-3xl font-black">One bold identity.</p></div></div></div></section>
+      <section className="bg-cream py-20 lg:py-28"><div className="section-shell"><div className="mb-9 flex items-end justify-between"><div><p className="text-sm font-extrabold uppercase text-teal">In motion</p><h2 className="mt-3 text-5xl font-black sm:text-6xl">Made for real teams.</h2></div></div><div className="grid gap-4 md:grid-cols-6 md:grid-rows-2"><img src={teamImage} alt="Kenyan sports team in custom apparel" loading="lazy" className="h-full min-h-96 w-full border-2 border-charcoal object-cover md:col-span-2 md:row-span-2"/><img src={productionImage} alt="Kenyan garment makers working in a textile workshop" loading="lazy" className="h-full min-h-72 w-full border-2 border-charcoal object-cover md:col-span-2"/><img src={schoolImage} alt="Students wearing custom school tracksuits" loading="lazy" className="h-full min-h-72 w-full border-2 border-charcoal object-cover md:col-span-2"/><img src={tracksuitImage} alt="Tailor cutting tracksuit fabric in the workshop" loading="lazy" className="h-full min-h-64 w-full border-2 border-charcoal object-cover md:col-span-2"/><img src={businessImage} alt="Business staff in branded polo uniforms" loading="lazy" className="h-full min-h-64 w-full border-2 border-charcoal object-cover md:col-span-2"/><div className="textile-grid flex min-h-64 items-end border-2 border-charcoal bg-orange p-7 md:col-span-2"><p className="font-display text-3xl font-black">Schools. Teams.<br/>Businesses. Events.</p></div></div></div></section>
 
       <section id="quote" className="bg-charcoal py-20 text-cream lg:py-28"><div className="section-shell grid gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><p className="text-sm font-extrabold uppercase text-teal">Bulk orders</p><h2 className="mt-3 text-5xl font-black leading-none sm:text-6xl">Let’s make it happen.</h2><p className="mt-6 max-w-md text-lg text-cream/70">Tell us what your group needs. Your details will open in WhatsApp, ready to send to VERYA.</p><div className="mt-8 space-y-3">{["Custom recommendations", "Clear order requirements", "A practical next step"].map(item => <p key={item} className="flex items-center gap-3 font-bold"><span className="flex size-6 items-center justify-center bg-teal text-charcoal"><Check className="size-4"/></span>{item}</p>)}</div></div><form onSubmit={submitQuote} className="grid gap-5 border-t-4 border-orange bg-cream p-6 text-charcoal sm:grid-cols-2 sm:p-9"><Field label="Product type"><select name="product" required defaultValue=""><option value="" disabled>Select a product</option><option>School Tracksuits</option><option>Custom T-Shirts</option><option>Business & Corporate Wear</option><option>Sports & Team Apparel</option><option>Event Apparel</option><option>Knitwear & Uniforms</option></select></Field><Field label="Quantity"><input name="quantity" type="number" min="1" placeholder="e.g. 120" required /></Field><Field label="Customization" wide><textarea name="customization" rows={3} placeholder="Colours, logo, names, printing or embroidery" required /></Field><Field label="Size requirements"><input name="sizes" placeholder="e.g. Youth and adult size range" required /></Field><Field label="Needed by"><input name="deadline" type="date" required /></Field><Field label="Name / organization" wide><input name="name" placeholder="Your name, school, team or business" required /></Field><div className="sm:col-span-2"><Button type="submit" variant="whatsapp" size="lg" className="w-full"><MessageCircle /> Continue on WhatsApp</Button></div></form></div></section>
 
