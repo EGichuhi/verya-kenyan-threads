@@ -26,11 +26,18 @@ export const Route = createFileRoute("/")({
 });
 
 const products = [
-  ["01", "School Tracksuits", "Our signature. Built for movement, belonging and everyday school life.", "bg-teal"],
-  ["02", "Custom T-Shirts", "Colourful branded tees that put your identity front and centre.", "bg-orange"],
-  ["03", "Business Wear", "Polished uniforms and branded apparel for teams that mean business.", "bg-gold"],
-  ["04", "Sports & Events", "Performance-ready kits and event wear made to show up together.", "bg-plum text-cream"],
-  ["05", "Knitwear & Uniforms", "Smart layers and dependable daily uniforms, tailored to your brief.", "bg-charcoal text-cream"],
+  { n: "01", title: "School Tracksuits", copy: "Our signature. Built for movement, belonging and everyday school life.", accent: "bg-teal", img: schoolImage, alt: "Students in custom teal and charcoal school tracksuits" },
+  { n: "02", title: "Custom T-Shirts", copy: "Colourful branded tees that put your identity front and centre.", accent: "bg-orange", img: eventImage, alt: "Event crew wearing custom printed T-shirts" },
+  { n: "03", title: "Business Wear", copy: "Polished uniforms and branded apparel for teams that mean business.", accent: "bg-gold", img: businessImage, alt: "Shop staff in branded business polos serving a customer" },
+  { n: "04", title: "Sports & Events", copy: "Performance-ready kits and event wear made to show up together.", accent: "bg-plum text-cream", img: teamImage, alt: "Sports team wearing matching custom kit" },
+  { n: "05", title: "Knitwear & Uniforms", copy: "Smart layers and dependable daily uniforms, tailored to your brief.", accent: "bg-charcoal text-cream", img: tracksuitImage, alt: "Tailor cutting tracksuit fabric on a workshop table" },
+];
+
+const audienceCards = [
+  { label: "Schools", img: schoolImage, alt: "Kenyan students in custom school tracksuits", accent: "bg-teal" },
+  { label: "Businesses", img: businessImage, alt: "Business staff in branded uniforms", accent: "bg-orange" },
+  { label: "Teams & Organizations", img: teamImage, alt: "Team in matching custom sportswear", accent: "bg-gold" },
+  { label: "Events", img: eventImage, alt: "Event organizers in custom branded T-shirts", accent: "bg-plum" },
 ];
 
 const audiences = ["Schools", "Businesses", "Teams & Organizations", "Events"];
