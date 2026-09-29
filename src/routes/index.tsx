@@ -124,7 +124,17 @@ function Index() {
         <div className="section-shell">
           <div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p className="text-sm font-extrabold uppercase text-gold">What we make</p><h2 className="mt-3 text-5xl font-black sm:text-6xl">Wear the difference.</h2></div><p className="max-w-sm text-sm leading-relaxed text-cream/70">From first sketch to final stitch, every order is shaped around your people and purpose.</p></div>
           <div className="grid gap-3 lg:grid-cols-2">
-            {products.map(([number, title, copy, color], i) => <article key={title} className={`${color} p-7 sm:p-9 ${i === 0 ? "min-h-80 lg:row-span-2" : "min-h-56"}`}><span className="text-xs font-black opacity-70">{number} /</span><div className="mt-16 lg:mt-24"><h3 className="text-3xl font-black sm:text-4xl">{title}</h3><p className="mt-3 max-w-md font-semibold leading-relaxed opacity-80">{copy}</p></div></article>)}
+            {products.map((product, i) => (
+              <article key={product.title} className={`group relative overflow-hidden border-2 border-cream/20 ${i === 0 ? "min-h-[26rem] lg:row-span-2" : "min-h-72"}`}>
+                <img src={product.img} alt={product.alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/10" />
+                <div className={`relative flex h-full flex-col justify-end p-7 text-cream sm:p-9 ${i === 0 ? "min-h-[26rem]" : "min-h-72"}`}>
+                  <span className={`${product.accent} mb-4 w-fit border-2 border-charcoal px-2 py-1 text-xs font-black text-charcoal`}>{product.n}</span>
+                  <h3 className="text-3xl font-black sm:text-4xl">{product.title}</h3>
+                  <p className="mt-3 max-w-md font-semibold leading-relaxed text-cream/80">{product.copy}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
