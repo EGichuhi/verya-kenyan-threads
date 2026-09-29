@@ -2,10 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowRight, Check, MessageCircle, Sparkles } from "lucide-react";
 import { type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/verya-hero.jpg";
+import heroImage from "@/assets/verya-hero-natural.jpg";
 import textilesImage from "@/assets/verya-textiles.jpg";
-import teamImage from "@/assets/verya-team.jpg";
-import productionImage from "@/assets/verya-production.jpg";
+import teamImage from "@/assets/verya-team-natural.jpg";
+import productionImage from "@/assets/verya-production-natural.jpg";
+import schoolImage from "@/assets/verya-school-candid.jpg";
+import businessImage from "@/assets/verya-business-candid.jpg";
+import eventImage from "@/assets/verya-event-candid.jpg";
+import tracksuitImage from "@/assets/verya-tracksuit-detail.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
