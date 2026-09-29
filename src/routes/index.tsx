@@ -106,8 +106,16 @@ function Index() {
       <section className="bg-cream py-20 lg:py-28">
         <div className="section-shell grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
           <div><p className="text-sm font-extrabold uppercase text-plum">Who we serve</p><h2 className="mt-3 text-5xl font-black leading-none sm:text-6xl">Your people.<br/>Your colours.<br/>Your identity.</h2></div>
-          <div className="grid grid-cols-2 border-l-2 border-t-2 border-charcoal">
-            {audiences.map((item, i) => <div key={item} className={`flex min-h-40 items-end border-b-2 border-r-2 border-charcoal p-5 sm:min-h-52 sm:p-7 ${i === 0 ? "bg-teal" : i === 1 ? "bg-orange" : i === 2 ? "bg-gold" : "bg-plum text-cream"}`}><span className="font-display text-2xl font-black sm:text-3xl">{item}</span></div>)}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {audienceCards.map((item) => (
+              <article key={item.label} className="group relative min-h-56 overflow-hidden border-2 border-charcoal sm:min-h-64">
+                <img src={item.img} alt={item.alt} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/25 to-transparent" />
+                <div className="relative flex h-full min-h-56 items-end p-5 sm:min-h-64 sm:p-6">
+                  <span className={`${item.accent} border-2 border-charcoal px-3 py-2 font-display text-xl font-black sm:text-2xl ${item.accent === "bg-plum" ? "text-cream" : "text-charcoal"}`}>{item.label}</span>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
