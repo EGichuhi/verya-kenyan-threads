@@ -45,7 +45,7 @@ const reasons = ["Quality", "Custom Design", "Reliable Production", "Kenyan Root
 const process = ["Tell Us", "Design", "Approve", "Produce", "Deliver"];
 
 function BrandMark({ light = false }: { light?: boolean }) {
-  return <a href="#top" aria-label="Imara Threads home" className={`font-display text-3xl font-black ${light ? "text-cream" : "text-charcoal"}`}>VER<span className="text-orange">Y</span>A<span className="text-teal">.</span></a>;
+  return <a href="#top" aria-label="Imara Threads home" className={`font-display text-2xl font-black tracking-tight sm:text-3xl ${light ? "text-cream" : "text-charcoal"}`}>IMARA<span className="text-orange">&nbsp;THREADS</span><span className="text-teal">.</span></a>;
 }
 
 function openWhatsApp(message: string) {
