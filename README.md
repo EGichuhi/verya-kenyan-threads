@@ -1,8 +1,8 @@
-# Vibrant Kenya Apparel
+# Imara Threads
 
-Create a bold, vibrant website for VERYA, a Kenyan-rooted apparel and knitwear company founded in 2026 in Canada by a Kenyan family and co-owned by Eunice and Hellen.
+Create a bold, vibrant website for Imara Threads, a Kenyan-rooted apparel and knitwear company founded in 2026 in Canada by a Kenyan family and co-owned by Eunice and Hellen.
 
-VERYА focuses on custom apparel for Kenyan schools, businesses, events, teams and organizations — especially school tracksuits, branded T-shirts, uniforms, sportswear and knitwear.
+Imara Threads focuses on custom apparel for Kenyan schools, businesses, events, teams and organizations — especially school tracksuits, branded T-shirts, uniforms, sportswear and knitwear.
 
 BRAND COLOURS — MUST MATCH THE LOGO EXACTLY:
 Teal #00B2A9
@@ -15,7 +15,7 @@ Do not introduce alternative brand colours. Use cream/charcoal for balance and t
 
 Brand personality: confident, energetic, warm, youthful, ambitious and proudly Kenyan. Do not use the Kenyan flag as the visual identity. Avoid generic Western corporate design, muted beige palettes and excessive minimalism. Use subtle textile-inspired patterns, bold typography, colour blocking and contemporary African-inspired geometry.
 
-VERYА connects Canadian roots with Kenyan opportunity and has been exploring international textile sourcing and manufacturing, including exposure to Chinese textile suppliers and machinery. Position the company as Kenyan-rooted, internationally minded and built to grow.
+Imara Threads connects Canadian roots with Kenyan opportunity and has been exploring international textile sourcing and manufacturing, including exposure to Chinese textile suppliers and machinery. Position the company as Kenyan-rooted, internationally minded and built to grow.
 
 HOMEPAGE:
 Hero: “Made to Move. Made in Kenya.”
@@ -29,7 +29,7 @@ Showcase:
 • Event & Team Apparel
 • Knitwear & Uniforms
 
-Why VERYА:
+Why Imara Threads:
 Quality • Custom Design • Reliable Production • Kenyan Roots • Built to Scale
 
 How It Works:

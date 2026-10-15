@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "VERYA | Custom Apparel, Made in Kenya" },
+      { title: "Imara Threads | Custom Apparel, Made in Kenya" },
       { name: "description", content: "Custom apparel for Kenyan schools, businesses, teams and events." },
-      { name: "author", content: "VERYA" },
-      { property: "og:title", content: "VERYA | Made to Move. Made in Kenya." },
+      { name: "author", content: "Imara Threads" },
+      { property: "og:title", content: "Imara Threads | Made to Move. Made in Kenya." },
       { property: "og:description", content: "Custom apparel for Kenyan schools, businesses, teams and events." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
